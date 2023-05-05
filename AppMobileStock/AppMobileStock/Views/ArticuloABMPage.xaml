@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMobileStock.Views.ArticuloABMPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Nombre"
+                TextColor="Black" />
+
+            <Entry
+                x:Name="txtNombre"
+                Placeholder="Escriba aqui..."
+                PlaceholderColor="DarkGray"
+                TextColor="Black" />
+
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Marca"
+                TextColor="Black" />
+
+            <Entry
+                x:Name="txtMarca"
+                Placeholder="Escriba aqui..."
+                PlaceholderColor="DarkGray"
+                TextColor="Black" />
+
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Minimo Stock"
+                TextColor="Black" />
+
+            <Entry
+                x:Name="txtMinStock"
+                Placeholder="Escriba aqui..."
+                PlaceholderColor="DarkGray"
+                TextColor="Black" />
+
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Proveedor"
+                TextColor="Black" />
+
+            <Entry
+                x:Name="txtProveedor"
+                Placeholder="Escriba aqui..."
+                PlaceholderColor="DarkGray"
+                TextColor="Black" />
+
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Precio"
+                TextColor="Black" />
+
+            <Entry
+                x:Name="txtPrecio"
+                Placeholder="Escriba aqui..."
+                PlaceholderColor="DarkGray"
+                TextColor="Black" />
+
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="Codigo"
+                TextColor="Black" />
+
+            <Entry
+                x:Name="txtCodigo"
+                Placeholder="Escriba aqui..."
+                PlaceholderColor="DarkGray"
+                TextColor="Black" />
+
+            <Button
+                BackgroundColor="Salmon"
+                Clicked="Button_Clicked"
+                Text="Agregar"
+                TextColor="Black" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
