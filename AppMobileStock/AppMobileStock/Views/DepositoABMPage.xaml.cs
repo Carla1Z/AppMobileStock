@@ -27,10 +27,21 @@ namespace AppMobileStock.Views
 				depositoDTOAgregar.Capacidad = Convert.ToDecimal(txtCapacidad.Text);
 				depositoDTOAgregar.Nombre = txtNombre.Text;
 				depositoDTOAgregar.Direccion = txtDireccion.Text;
+				depositoDTOAgregar.Mensaje = "Deposito agregado";
 
 				ApiDepositoServices apiDepositoServices = new ApiDepositoServices();
 
 				depositoDTOAgregar = await apiDepositoServices.SendDeposito(depositoDTOAgregar);
+
+				if (depositoDTOAgregar.HuboError)
+				{
+					await DisplayAlert("Error", "Ocurrio un error: " + depositoDTOAgregar.Mensaje, "Ok");
+				}
+				else
+				{
+					await DisplayAlert("Operación exitosa", depositoDTOAgregar.Mensaje, "Ok");
+				}
+
 			}
 			catch (Exception ex)
 			{

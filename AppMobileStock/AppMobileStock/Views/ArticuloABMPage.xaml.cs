@@ -35,6 +35,16 @@ namespace AppMobileStock.Views
 				ApiArticuloServices apiArticuloServices = new ApiArticuloServices();
 
 				articuloDTOAgregar = await apiArticuloServices.SendArticulo(articuloDTOAgregar);
+
+
+				if (articuloDTOAgregar.HuboError)
+				{
+					await DisplayAlert("Error", "Ocurrio un error: " + articuloDTOAgregar.Mensaje, "Ok");
+				}
+				else
+				{
+					await DisplayAlert("Operación exitosa", articuloDTOAgregar.Mensaje, "Ok");
+				}
 			}
 			catch (Exception ex)
 			{
