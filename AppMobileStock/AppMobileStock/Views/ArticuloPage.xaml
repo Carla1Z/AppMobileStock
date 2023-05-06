@@ -26,22 +26,40 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="140" />
+                                </Grid.ColumnDefinitions>
 
-                            <Label
-                                Grid.Column="1"
-                                BackgroundColor="LightPink"
-                                FontAttributes="Bold"
-                                LineBreakMode="TailTruncation"
-                                Text="{Binding Nombre}"
-                                TextColor="Black" />
+                                <Image
+                                    Grid.RowSpan="2"
+                                    Aspect="AspectFill"
+                                    HeightRequest="60"
+                                    Source="https://imageio.forbes.com/blogs-images/adrianbridgwater/files/2016/02/1monkey.jpg"
+                                    WidthRequest="60" />
 
-                            <Label
-                                Grid.Column="1"
-                                FontAttributes="Bold"
-                                LineBreakMode="TailTruncation"
-                                Text="{Binding Codigo}"
-                                TextColor="Black" />
+                                <Label
+                                    Grid.Column="1"
+                                    BackgroundColor="LightPink"
+                                    FontAttributes="Bold"
+                                    LineBreakMode="TailTruncation"
+                                    Text="{Binding Nombre}"
+                                    TextColor="Black" />
 
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    LineBreakMode="TailTruncation"
+                                    Text="{Binding Codigo}"
+                                    TextColor="Black" />
+
+                            </Grid>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
