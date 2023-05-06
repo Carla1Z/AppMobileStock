@@ -25,7 +25,7 @@ namespace AppMobileStock.Services
 
 			this.Client = new HttpClient(httpClientHandler);
 
-			this.URL = "https://192.168.0.9:45455/api/Depositos/";
+			this.URL = "https://otheraquacat27.conveyor.cloud/api/Depositos";
 		}
 
 		public async Task<DepositoDTO> SendDeposito(DepositoDTO depositoDTO)

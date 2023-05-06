@@ -26,10 +26,11 @@ namespace AppMobileStock.Views
 				ArticuloDTO articuloDTOAgregar = new ArticuloDTO();
 				articuloDTOAgregar.Nombre = txtNombre.Text;
 				articuloDTOAgregar.Marca = txtMarca.Text;
-				articuloDTOAgregar.MinimoStock = Convert.ToDecimal(txtMinStock.Text);
+				articuloDTOAgregar.MinimoStock = Convert.ToDecimal(txtMinStock.Text.Replace(',', '.'));
 				articuloDTOAgregar.Proveedor = txtProveedor.Text;
 				articuloDTOAgregar.Precio = (float)Convert.ToDecimal(txtPrecio.Text);
 				articuloDTOAgregar.Codigo = txtCodigo.Text;
+				articuloDTOAgregar.Mensaje = "Articulo agregado";
 
 				ApiArticuloServices apiArticuloServices = new ApiArticuloServices();
 
