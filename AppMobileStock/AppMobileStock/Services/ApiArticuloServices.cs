@@ -25,7 +25,7 @@ namespace AppMobileStock.Services
 
 			this.Client = new HttpClient(httpClientHandler);
 
-			this.URL = "https://otheraquacat27.conveyor.cloud/api/Articulos";
+			this.URL = "https://differentaquashop17.conveyor.cloud/api/Articulos";
 		}
 
 		public async Task<ArticuloDTO> SendArticulo(ArticuloDTO articuloDTO)
@@ -62,5 +62,93 @@ namespace AppMobileStock.Services
 				}
 			}
 		}
+
+		//nuevo
+
+		public async Task<List<ArticuloDTO>> GetArticulos()
+		{
+			try
+			{
+				var httpClientHandler = new HttpClientHandler();
+
+				httpClientHandler.ServerCertificateCustomValidationCallback =
+				(message, cert, chain, errors) => { return true; };
+
+				using (HttpClient client = new HttpClient(httpClientHandler))
+				{
+					//client.Timeout = TimeSpan.FromMinutes(App.HttpClientTimeOut);
+					string url = $"{this.URL}";
+
+					ErrorLog += $"Inicio Get order con url {url}";
+					//client.DefaultRequestHeaders.Add("ZUMO-API-VERSION", "2.0.0");
+					client.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
+
+					HttpResponseMessage response = await client.GetAsync(url);
+					ErrorLog += $"Hice Get Async";
+					string data = await response.Content.ReadAsStringAsync();
+
+					if (response.IsSuccessStatusCode)
+					{
+						ErrorLog += $"Recibi data";
+						var datos = JsonConvert.DeserializeObject<List<ArticuloDTO>>(data);
+						return datos;
+					}
+					else
+					{
+						ErrorLog += $"Recibi error";
+						return null;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorLog += $"Error Ejecutando get  {ex.Message}";
+				return null;
+			}
+		}
+
+		public async Task<ArticuloDTO> GetArticuloById(int id)
+		{
+			try
+			{
+				var httpClientHandler = new HttpClientHandler();
+
+				httpClientHandler.ServerCertificateCustomValidationCallback =
+				(message, cert, chain, errors) => { return true; };
+
+				using (HttpClient client = new HttpClient(httpClientHandler))
+				{
+					//client.Timeout = TimeSpan.FromMinutes(App.HttpClientTimeOut);
+					string url = $"{this.URL}{id}";
+
+					ErrorLog += $"Inicio Get order con url {url}";
+					//client.DefaultRequestHeaders.Add("ZUMO-API-VERSION", "2.0.0");
+					client.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
+
+					HttpResponseMessage response = await client.GetAsync(url);
+					ErrorLog += $"Hice Get Async";
+					string data = await response.Content.ReadAsStringAsync();
+
+					if (response.IsSuccessStatusCode)
+					{
+						ErrorLog += $"Recibi data";
+						var datos = JsonConvert.DeserializeObject<ArticuloDTO>(data);
+						return datos;
+					}
+					else
+					{
+						ErrorLog += $"Recibi error";
+						return null;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorLog += $"Error Ejecutando get  {ex.Message}";
+				return null;
+			}
+		}
+
+
 	}
 }
